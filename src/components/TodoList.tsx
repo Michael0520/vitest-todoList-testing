@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { cn } from '../utils/index'
 
 interface TodoItemProps {
   id: number
@@ -20,7 +21,16 @@ const Todo = ({
   const [newContent, setNewContent] = useState(todo.content)
 
   return (
-    <li className="my-4 flex items-center justify-between rounded-lg border-l-4 border-blue-500 bg-white p-4 shadow transition-all duration-300 ease-in-out hover:bg-blue-100">
+    <li
+      className={cn(
+        'my-4 flex items-center justify-between rounded-lg p-4 shadow transition-all duration-300 ease-in-out',
+        {
+          'border-l-4 border-blue-500 bg-white hover:bg-blue-100':
+            !todo.isInEditMode
+        },
+        { 'border-l-4 border-green-500 bg-green-50': todo.isInEditMode }
+      )}
+    >
       {todo.isInEditMode ? (
         <>
           <input
@@ -35,7 +45,6 @@ const Todo = ({
             className="mr-4 flex-1 rounded-lg border-2 border-gray-300 p-3"
             autoFocus
           />
-
           <button
             onClick={() => onSave(todo.id, newContent)}
             className="rounded-lg bg-green-500 px-4 py-2 text-sm font-bold text-white transition-all duration-300 ease-in-out hover:bg-green-600"
@@ -118,13 +127,13 @@ const TodoList: React.FC = () => {
             value={newTodoContent}
             onChange={handleInputChange}
             className="mr-4 flex-1 rounded-lg border-2 border-gray-300 bg-white p-3 transition duration-200 ease-in-out focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-            placeholder="輸入待辦事項..."
+            placeholder="Add a new task..."
           />
           <button
             type="submit"
             className="rounded-lg bg-blue-500 px-6 py-3 font-bold text-white shadow-md transition duration-200 ease-in-out hover:bg-blue-600 hover:shadow-lg"
           >
-            新增
+            Add
           </button>
         </form>
       </header>
