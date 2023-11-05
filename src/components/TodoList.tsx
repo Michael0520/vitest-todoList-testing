@@ -1,77 +1,7 @@
 import React, { useState } from 'react'
-import { cn } from '../utils/index'
 
-interface TodoItemProps {
-  id: number
-  content: string
-  isInEditMode: boolean
-}
-
-const Todo = ({
-  todo,
-  onToggleEditMode,
-  onDelete,
-  onSave
-}: {
-  todo: TodoItemProps
-  onToggleEditMode: (id: number) => void
-  onDelete: (id: number) => void
-  onSave: (id: number, content: string) => void
-}) => {
-  const [newContent, setNewContent] = useState(todo.content)
-
-  return (
-    <li
-      className={cn(
-        'my-4 flex items-center justify-between rounded-lg p-4 shadow transition-all duration-300 ease-in-out',
-        {
-          'border-l-4 border-blue-500 bg-white hover:bg-blue-100':
-            !todo.isInEditMode
-        },
-        { 'border-l-4 border-green-500 bg-green-50': todo.isInEditMode }
-      )}
-    >
-      {todo.isInEditMode ? (
-        <>
-          <input
-            type="text"
-            value={newContent}
-            onChange={(e) => setNewContent(e.target.value)}
-            onKeyPress={(e) => {
-              if (e.key === 'Enter') {
-                onSave(todo.id, newContent)
-              }
-            }}
-            className="mr-4 flex-1 rounded-lg border-2 border-gray-300 p-3"
-            autoFocus
-          />
-          <button
-            onClick={() => onSave(todo.id, newContent)}
-            className="rounded-lg bg-green-500 px-4 py-2 text-sm font-bold text-white transition-all duration-300 ease-in-out hover:bg-green-600"
-          >
-            儲存
-          </button>
-        </>
-      ) : (
-        <>
-          <span className="mr-4 flex-1 truncate">{todo.content}</span>
-          <button
-            onClick={() => onToggleEditMode(todo.id)}
-            className="rounded-lg bg-green-500 px-4 py-2 text-sm font-bold text-white transition-all duration-300 ease-in-out hover:bg-green-600"
-          >
-            編輯
-          </button>
-          <button
-            onClick={() => onDelete(todo.id)}
-            className="ml-4 rounded-lg bg-red-500 px-4 py-2 text-sm font-bold text-white transition-all duration-300 ease-in-out hover:bg-red-600"
-          >
-            刪除
-          </button>
-        </>
-      )}
-    </li>
-  )
-}
+import { TodoItemProps } from 'types'
+import Todo from './TodoItem'
 
 const TodoList: React.FC = () => {
   const [todoItems, setTodoItems] = useState<TodoItemProps[]>([])
