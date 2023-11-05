@@ -20,9 +20,9 @@ const Todo: React.FC<TodoProps> = ({
   return (
     <li
       className={cn(
-        'my-4 flex items-center justify-between rounded-lg p-4 shadow transition-all duration-300 ease-in-out',
+        'backdrop-blur-md my-4 flex items-center justify-between rounded-lg p-4 shadow transition-all duration-300 ease-in-out',
         {
-          'border-l-4 border-blue-500 bg-white hover:bg-blue-100':
+          'border-l-4 border-blue-500 bg-white/60 hover:bg-blue-100':
             !todo.isInEditMode
         },
         { 'border-l-4 border-green-500 bg-green-50': todo.isInEditMode }

@@ -67,7 +67,7 @@ const TodoList: React.FC = () => {
           </button>
         </form>
       </header>
-      <main className="mx-auto max-w-2xl">
+      <main className="mx-auto w-full">
         <ul>
           {todoItems.map((todo) => (
             <Todo
