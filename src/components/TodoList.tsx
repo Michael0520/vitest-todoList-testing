@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { PlusIcon } from '@radix-ui/react-icons'
 import { TodoItemProps } from 'types'
 import Todo from './TodoItem'
 
@@ -63,7 +63,7 @@ const TodoList: React.FC = () => {
             type="submit"
             className="rounded-lg bg-blue-500 px-6 py-3 font-bold text-white shadow-md transition duration-200 ease-in-out hover:bg-blue-600 hover:shadow-lg"
           >
-            Add
+            <PlusIcon className="h-6 w-6" />
           </button>
         </form>
       </header>

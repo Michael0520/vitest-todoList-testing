@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { TodoItemProps } from 'types'
 import { cn } from 'utils'
+import { Pencil2Icon, TrashIcon, CheckIcon } from '@radix-ui/react-icons'
 
 interface TodoProps {
   todo: TodoItemProps
@@ -45,7 +46,7 @@ const Todo: React.FC<TodoProps> = ({
             onClick={() => onSave(todo.id, newContent)}
             className="rounded-lg bg-green-500 px-4 py-2 text-sm font-bold text-white transition-all duration-300 ease-in-out hover:bg-green-600"
           >
-            儲存
+            <CheckIcon className="h-6 w-4" />
           </button>
         </>
       ) : (
@@ -55,13 +56,13 @@ const Todo: React.FC<TodoProps> = ({
             onClick={() => onToggleEditMode(todo.id)}
             className="rounded-lg bg-green-500 px-4 py-2 text-sm font-bold text-white transition-all duration-300 ease-in-out hover:bg-green-600"
           >
-            編輯
+            <Pencil2Icon className="h-6 w-4" />
           </button>
           <button
             onClick={() => onDelete(todo.id)}
             className="ml-4 rounded-lg bg-red-500 px-4 py-2 text-sm font-bold text-white transition-all duration-300 ease-in-out hover:bg-red-600"
           >
-            刪除
+            <TrashIcon className="h-6 w-4" />
           </button>
         </>
       )}
