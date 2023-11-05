@@ -67,7 +67,7 @@ const TodoList: React.FC = () => {
           </button>
         </form>
       </header>
-      <main className="mx-auto w-full">
+      <main className="mx-auto w-full" data-testId="todo-list-container">
         <ul>
           {todoItems.map((todo) => (
             <Todo

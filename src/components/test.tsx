@@ -1,32 +1,17 @@
 import { render, screen } from '@testing-library/react'
-
 import App from './App'
 
 describe('<App />', () => {
-  it('should render the App', () => {
-    const { container } = render(<App />)
+  it('should render the Todo List heading', () => {
+    render(<App />)
 
-    expect(
-      screen.getByRole('heading', {
-        name: /Welcome!/i,
-        level: 1
-      })
-    ).toBeInTheDocument()
+    const heading = screen.getByRole('heading', {
+      name: /todo list/i,
+      level: 1
+    })
+    expect(heading).toBeInTheDocument()
 
-    expect(
-      screen.getByText(
-        /This is a boilerplate build with Vite, React 18, TypeScript, Vitest, Testing Library, TailwindCSS 3, Eslint and Prettier./i
-      )
-    ).toBeInTheDocument()
-
-    expect(
-      screen.getByRole('link', {
-        name: /start building for free/i
-      })
-    ).toBeInTheDocument()
-
-    expect(screen.getByRole('img')).toBeInTheDocument()
-
-    expect(container.firstChild).toBeInTheDocument()
+    const todoListContainer = screen.getByTestId('todo-list-container')
+    expect(todoListContainer).toBeInTheDocument()
   })
 })
