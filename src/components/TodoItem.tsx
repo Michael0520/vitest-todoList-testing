@@ -44,6 +44,7 @@ const Todo: React.FC<TodoProps> = ({
           />
           <button
             onClick={() => onSave(todo.id, newContent)}
+            aria-label="Save"
             className="rounded-lg bg-green-500 px-4 py-2 text-sm font-bold text-white transition-all duration-300 ease-in-out hover:bg-green-600"
           >
             <CheckIcon className="h-6 w-4" />
@@ -54,6 +55,7 @@ const Todo: React.FC<TodoProps> = ({
           <span className="mr-4 flex-1 truncate">{todo.content}</span>
           <button
             onClick={() => onToggleEditMode(todo.id)}
+            aria-label="Edit"
             className="rounded-lg bg-green-500 px-4 py-2 text-sm font-bold text-white transition-all duration-300 ease-in-out hover:bg-green-600"
           >
             <Pencil2Icon className="h-6 w-4" />
