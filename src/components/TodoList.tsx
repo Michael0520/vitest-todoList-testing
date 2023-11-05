@@ -61,6 +61,7 @@ const TodoList: React.FC = () => {
           />
           <button
             type="submit"
+            aria-label="Add"
             className="rounded-lg bg-blue-500 px-6 py-3 font-bold text-white shadow-md transition duration-200 ease-in-out hover:bg-blue-600 hover:shadow-lg"
           >
             <PlusIcon className="h-6 w-6" />

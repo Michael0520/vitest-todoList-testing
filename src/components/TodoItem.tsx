@@ -59,6 +59,7 @@ const Todo: React.FC<TodoProps> = ({
             <Pencil2Icon className="h-6 w-4" />
           </button>
           <button
+            aria-label="Delete"
             onClick={() => onDelete(todo.id)}
             className="ml-4 rounded-lg bg-red-500 px-4 py-2 text-sm font-bold text-white transition-all duration-300 ease-in-out hover:bg-red-600"
           >
